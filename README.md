@@ -1,16 +1,7 @@
 # FastAPI_Study
-FastAPI/GCPでの環境構築/Trraform/Github Actionsを使用したCI/CDの学習用。
+FastAPI/GCPでの環境構築/Terraform/Github Actionsを使用したCI/CDの学習用。
 
 # FastAPIの環境構築
-
-## ローカルでの環境構築
-# Sgt_akapen
-
-旗艦店の商品ページに掲載する画像・テキストについて、販売情報ごとまたは販売単位ごとに誤表記有無や情報の一貫性をチェックする API を提供する。
-
-※Sgt は Sergent（軍曹）の略
-
-# セットアップ
 
 ## 環境構築 〜 サーバー起動（ローカルpython + poetry）
 
