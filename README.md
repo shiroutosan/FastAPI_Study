@@ -99,5 +99,3 @@ poetry add uvicorn[standard] pydantic[email] sqlalchemy httpx pytest
   - 環境変数を定義したファイル。　docker-compose.yamlと同じ階層に作成
 - credentials_terraform.json 
   -  GCPの各リソースを作成するためのサービスアカウント認証情報。  variables.tfと同じ階層に作成
-
-6a6da7682150da4e789cdc4ae85482cb
