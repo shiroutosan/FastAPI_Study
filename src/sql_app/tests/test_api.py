@@ -42,7 +42,7 @@ error_message_password = {
     "message": "パスワードは半角英数字のみ8文字以上で構成し、数字・大文字・小文字を最低1文字ずつ含めてください。"
 }
 
-def test_create_dupliucate_user(test_db, client):
+def test_create_duplicate_user(test_db, client):
     """POST /users/ のエンドポイントに対する異常系テスト。
     - 登録済ユーザーのemailを含むリクエスト送信時に異常系（status=400）のレスポンスが返却されること
     - 上記エラーパターンで、登録済ユーザーである旨のレスポンスメッセージが返却されること。
