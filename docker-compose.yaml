@@ -1,5 +1,3 @@
-version: "3.11"
-
 services:
   api:
     build:
@@ -8,7 +6,7 @@ services:
     volumes:
       - ./src:/app/src  # コードをマウントして変更を即時反映
     environment:
-      - DEBUG=true
+      - DEBUG=${DEBUG}
       - RELOAD=true
       - LOG_LEVEL=debug
     ports:

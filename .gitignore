@@ -2,3 +2,18 @@ __pycache__
 *.db
 .pytest_cache
 .dockerignore
+credentials*
+.env
+test_user
+
+# Terraform キャッシュとプラグイン
+.terraform/
+# Terraform 状態ファイル
+terraform.tfstate
+terraform.tfstate.backup
+
+# tfvars ファイル
+*.tfvars
+
+# 一時プランファイル
+*.tfplan
