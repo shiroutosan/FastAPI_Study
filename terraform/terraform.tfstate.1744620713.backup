@@ -1,0 +1,1053 @@
+{
+  "version": 4,
+  "terraform_version": "1.11.4",
+  "serial": 82,
+  "lineage": "9599bec9-a6a7-fa3e-fccd-141bf1a68b22",
+  "outputs": {
+    "cloud_run_url": {
+      "value": "https://fastapi-service-rdiogtbokq-uc.a.run.app",
+      "type": "string"
+    },
+    "load_balancer_ip": {
+      "value": "34.8.204.94",
+      "type": "string"
+    },
+    "ssl_certificate_domains": {
+      "value": [
+        "api.fastapi-service.com"
+      ],
+      "type": [
+        "list",
+        "string"
+      ]
+    },
+    "storage_bucket": {
+      "value": "coastal-gantry-250809-fastapi-service-bucket",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "google_artifact_registry_repository",
+      "name": "fastapi-study",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cleanup_policies": [],
+            "cleanup_policy_dry_run": false,
+            "create_time": "2025-04-13T12:00:51.488282Z",
+            "description": "Docker repository for fastapi-study container images",
+            "docker_config": [],
+            "effective_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "format": "DOCKER",
+            "id": "projects/coastal-gantry-250809/locations/us-central1/repositories/fastapi-study",
+            "kms_key_name": "",
+            "labels": {},
+            "location": "us-central1",
+            "maven_config": [],
+            "mode": "STANDARD_REPOSITORY",
+            "name": "fastapi-study",
+            "project": "coastal-gantry-250809",
+            "remote_repository_config": [],
+            "repository_id": "fastapi-study",
+            "terraform_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "timeouts": null,
+            "update_time": "2025-04-13T23:19:20.961368Z",
+            "virtual_repository_config": [],
+            "vulnerability_scanning_config": [
+              {
+                "enablement_config": "",
+                "enablement_state": "SCANNING_DISABLED",
+                "enablement_state_reason": "API containerscanning.googleapis.com is not enabled."
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_project_service.required_services"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_cloud_run_service",
+      "name": "fastapi-service",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "autogenerate_revision_name": false,
+            "id": "locations/us-central1/namespaces/coastal-gantry-250809/services/fastapi-service",
+            "location": "us-central1",
+            "metadata": [
+              {
+                "annotations": {},
+                "effective_annotations": {
+                  "run.googleapis.com/ingress": "all",
+                  "run.googleapis.com/ingress-status": "all",
+                  "run.googleapis.com/operation-id": "23f587e1-88c6-4f23-9983-331bc7f3b566",
+                  "run.googleapis.com/urls": "[\"https://fastapi-service-21979388483.us-central1.run.app\",\"https://fastapi-service-rdiogtbokq-uc.a.run.app\"]",
+                  "serving.knative.dev/creator": "terraform@coastal-gantry-250809.iam.gserviceaccount.com",
+                  "serving.knative.dev/lastModifier": "terraform@coastal-gantry-250809.iam.gserviceaccount.com"
+                },
+                "effective_labels": {
+                  "cloud.googleapis.com/location": "us-central1"
+                },
+                "generation": 1,
+                "labels": {},
+                "namespace": "coastal-gantry-250809",
+                "resource_version": "AAYysS1cOYY",
+                "self_link": "/apis/serving.knative.dev/v1/namespaces/21979388483/services/fastapi-service",
+                "terraform_labels": {},
+                "uid": "cc9a7b65-a5d9-466f-b974-82fb9a55566d"
+              }
+            ],
+            "name": "fastapi-service",
+            "project": "coastal-gantry-250809",
+            "status": [
+              {
+                "conditions": [
+                  {
+                    "message": "",
+                    "reason": "",
+                    "status": "True",
+                    "type": "Ready"
+                  },
+                  {
+                    "message": "",
+                    "reason": "",
+                    "status": "True",
+                    "type": "ConfigurationsReady"
+                  },
+                  {
+                    "message": "",
+                    "reason": "",
+                    "status": "True",
+                    "type": "RoutesReady"
+                  }
+                ],
+                "latest_created_revision_name": "fastapi-service-00001-phs",
+                "latest_ready_revision_name": "fastapi-service-00001-phs",
+                "observed_generation": 1,
+                "traffic": [
+                  {
+                    "latest_revision": true,
+                    "percent": 100,
+                    "revision_name": "fastapi-service-00001-phs",
+                    "tag": "",
+                    "url": ""
+                  }
+                ],
+                "url": "https://fastapi-service-rdiogtbokq-uc.a.run.app"
+              }
+            ],
+            "template": [
+              {
+                "metadata": [
+                  {
+                    "annotations": {
+                      "autoscaling.knative.dev/maxScale": "100"
+                    },
+                    "generation": 0,
+                    "labels": {
+                      "run.googleapis.com/startupProbeType": "Default"
+                    },
+                    "name": "",
+                    "namespace": "",
+                    "resource_version": "",
+                    "self_link": "",
+                    "uid": ""
+                  }
+                ],
+                "spec": [
+                  {
+                    "container_concurrency": 80,
+                    "containers": [
+                      {
+                        "args": [],
+                        "command": [],
+                        "env": [
+                          {
+                            "name": "BUCKET_NAME",
+                            "value": "coastal-gantry-250809-fastapi-service-bucket",
+                            "value_from": []
+                          }
+                        ],
+                        "env_from": [],
+                        "image": "us-central1-docker.pkg.dev/coastal-gantry-250809/fastapi-study/fastapi-service:latest",
+                        "liveness_probe": [],
+                        "name": "",
+                        "ports": [
+                          {
+                            "container_port": 8080,
+                            "name": "http1",
+                            "protocol": ""
+                          }
+                        ],
+                        "resources": [
+                          {
+                            "limits": {
+                              "cpu": "1000m",
+                              "memory": "512Mi"
+                            },
+                            "requests": {}
+                          }
+                        ],
+                        "startup_probe": [
+                          {
+                            "failure_threshold": 1,
+                            "grpc": [],
+                            "http_get": [],
+                            "initial_delay_seconds": 0,
+                            "period_seconds": 240,
+                            "tcp_socket": [
+                              {
+                                "port": 8080
+                              }
+                            ],
+                            "timeout_seconds": 240
+                          }
+                        ],
+                        "volume_mounts": [],
+                        "working_dir": ""
+                      }
+                    ],
+                    "node_selector": {},
+                    "service_account_name": "fastapi-service-sa@coastal-gantry-250809.iam.gserviceaccount.com",
+                    "serving_state": "",
+                    "timeout_seconds": 300,
+                    "volumes": []
+                  }
+                ]
+              }
+            ],
+            "timeouts": null,
+            "traffic": [
+              {
+                "latest_revision": true,
+                "percent": 100,
+                "revision_name": "",
+                "tag": "",
+                "url": ""
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMiJ9",
+          "dependencies": [
+            "google_project_service.required_services",
+            "google_secret_manager_secret.app_secrets",
+            "google_service_account.cloud_run_service_account",
+            "google_storage_bucket.app_storage"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_cloud_run_service_iam_member",
+      "name": "public_access",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwYysVHJW24=",
+            "id": "v1/projects/coastal-gantry-250809/locations/us-central1/services/fastapi-service/roles/run.invoker/allUsers",
+            "location": "us-central1",
+            "member": "allUsers",
+            "project": "coastal-gantry-250809",
+            "role": "roles/run.invoker",
+            "service": "v1/projects/coastal-gantry-250809/locations/us-central1/services/fastapi-service"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_cloud_run_service.fastapi-service",
+            "google_project_service.required_services",
+            "google_secret_manager_secret.app_secrets",
+            "google_service_account.cloud_run_service_account",
+            "google_storage_bucket.app_storage"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_compute_backend_service",
+      "name": "backend",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "affinity_cookie_ttl_sec": 0,
+            "backend": [
+              {
+                "balancing_mode": "UTILIZATION",
+                "capacity_scaler": 1,
+                "custom_metrics": [],
+                "description": "",
+                "group": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/regions/us-central1/networkEndpointGroups/fastapi-service-neg",
+                "max_connections": 0,
+                "max_connections_per_endpoint": 0,
+                "max_connections_per_instance": 0,
+                "max_rate": 0,
+                "max_rate_per_endpoint": 0,
+                "max_rate_per_instance": 0,
+                "max_utilization": 0
+              }
+            ],
+            "cdn_policy": [],
+            "circuit_breakers": [],
+            "compression_mode": "",
+            "connection_draining_timeout_sec": 300,
+            "consistent_hash": [],
+            "creation_timestamp": "2025-04-13T16:20:27.121-07:00",
+            "custom_metrics": [],
+            "custom_request_headers": [],
+            "custom_response_headers": [],
+            "description": "",
+            "edge_security_policy": "",
+            "enable_cdn": false,
+            "fingerprint": "phLqSsOcklA=",
+            "generated_id": 9132842199607801940,
+            "health_checks": [],
+            "iap": [],
+            "id": "projects/coastal-gantry-250809/global/backendServices/fastapi-service-backend",
+            "ip_address_selection_policy": "",
+            "load_balancing_scheme": "EXTERNAL",
+            "locality_lb_policies": [],
+            "locality_lb_policy": "",
+            "log_config": [],
+            "name": "fastapi-service-backend",
+            "outlier_detection": [],
+            "port_name": "http",
+            "project": "coastal-gantry-250809",
+            "protocol": "HTTP",
+            "security_policy": "",
+            "security_settings": [],
+            "self_link": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/global/backendServices/fastapi-service-backend",
+            "service_lb_policy": "",
+            "session_affinity": "NONE",
+            "strong_session_affinity_cookie": [],
+            "timeout_sec": 30,
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "google_cloud_run_service.fastapi-service",
+            "google_compute_region_network_endpoint_group.serverless_neg",
+            "google_project_service.required_services",
+            "google_secret_manager_secret.app_secrets",
+            "google_service_account.cloud_run_service_account",
+            "google_storage_bucket.app_storage"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_compute_global_address",
+      "name": "lb_ip",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address": "34.8.204.94",
+            "address_type": "EXTERNAL",
+            "creation_timestamp": "2025-04-13T05:11:01.320-07:00",
+            "description": "",
+            "effective_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "id": "projects/coastal-gantry-250809/global/addresses/fastapi-service-lb-ip",
+            "ip_version": "",
+            "label_fingerprint": "vezUS-42LLM=",
+            "labels": {},
+            "name": "fastapi-service-lb-ip",
+            "network": "",
+            "prefix_length": 0,
+            "project": "coastal-gantry-250809",
+            "purpose": "",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/global/addresses/fastapi-service-lb-ip",
+            "terraform_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_project_service.required_services"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_compute_global_forwarding_rule",
+      "name": "forwarding_rule_https",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "base_forwarding_rule": "",
+            "description": "",
+            "effective_labels": {},
+            "forwarding_rule_id": 5692435832004245480,
+            "id": "projects/coastal-gantry-250809/global/forwardingRules/fastapi-service-lb-rule",
+            "ip_address": "34.8.204.94",
+            "ip_protocol": "TCP",
+            "ip_version": "",
+            "label_fingerprint": "42WmSpB8rSM=",
+            "labels": {},
+            "load_balancing_scheme": "EXTERNAL",
+            "metadata_filters": [],
+            "name": "fastapi-service-lb-rule",
+            "network": "",
+            "network_tier": "PREMIUM",
+            "no_automate_dns_zone": null,
+            "port_range": "80-80",
+            "project": "coastal-gantry-250809",
+            "psc_connection_id": "",
+            "psc_connection_status": "",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/global/forwardingRules/fastapi-service-lb-rule",
+            "service_directory_registrations": [],
+            "source_ip_ranges": [],
+            "subnetwork": "",
+            "target": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/global/targetHttpsProxies/fastapi-service-https-proxy",
+            "terraform_labels": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_cloud_run_service.fastapi-service",
+            "google_compute_backend_service.backend",
+            "google_compute_global_address.lb_ip",
+            "google_compute_managed_ssl_certificate.ssl",
+            "google_compute_region_network_endpoint_group.serverless_neg",
+            "google_compute_target_https_proxy.https_proxy",
+            "google_compute_url_map.url_map",
+            "google_project_service.required_services",
+            "google_secret_manager_secret.app_secrets",
+            "google_service_account.cloud_run_service_account",
+            "google_storage_bucket.app_storage"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_compute_managed_ssl_certificate",
+      "name": "ssl",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "certificate_id": 2663729666297263617,
+            "creation_timestamp": "2025-04-14T01:35:58.147-07:00",
+            "description": "",
+            "expire_time": "",
+            "id": "projects/coastal-gantry-250809/global/sslCertificates/ssl",
+            "managed": [
+              {
+                "domains": [
+                  "api.fastapi-study.com"
+                ]
+              }
+            ],
+            "name": "ssl",
+            "project": "coastal-gantry-250809",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/global/sslCertificates/ssl",
+            "subject_alternative_names": [],
+            "timeouts": null,
+            "type": "MANAGED"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDB9fQ==",
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_compute_region_network_endpoint_group",
+      "name": "serverless_neg",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "app_engine": [],
+            "cloud_function": [],
+            "cloud_run": [
+              {
+                "service": "fastapi-service",
+                "tag": "",
+                "url_mask": ""
+              }
+            ],
+            "description": "",
+            "id": "projects/coastal-gantry-250809/regions/us-central1/networkEndpointGroups/fastapi-service-neg",
+            "name": "fastapi-service-neg",
+            "network": "",
+            "network_endpoint_type": "SERVERLESS",
+            "project": "coastal-gantry-250809",
+            "psc_data": [],
+            "psc_target_service": "",
+            "region": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/regions/us-central1",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/regions/us-central1/networkEndpointGroups/fastapi-service-neg",
+            "subnetwork": "",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "google_cloud_run_service.fastapi-service",
+            "google_project_service.required_services",
+            "google_secret_manager_secret.app_secrets",
+            "google_service_account.cloud_run_service_account",
+            "google_storage_bucket.app_storage"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_compute_target_https_proxy",
+      "name": "https_proxy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "certificate_manager_certificates": [],
+            "certificate_map": "",
+            "creation_timestamp": "2025-04-14T01:36:10.361-07:00",
+            "description": "fastapi-serviceのhttps-proxy",
+            "http_keep_alive_timeout_sec": 0,
+            "id": "projects/coastal-gantry-250809/global/targetHttpsProxies/fastapi-service-https-proxy",
+            "name": "fastapi-service-https-proxy",
+            "project": "coastal-gantry-250809",
+            "proxy_bind": false,
+            "proxy_id": 5885293487230907925,
+            "quic_override": "NONE",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/global/targetHttpsProxies/fastapi-service-https-proxy",
+            "server_tls_policy": "",
+            "ssl_certificates": [
+              "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/global/sslCertificates/ssl"
+            ],
+            "ssl_policy": "",
+            "timeouts": null,
+            "tls_early_data": "DISABLED",
+            "url_map": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/global/urlMaps/fastapi-service-url-map"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_cloud_run_service.fastapi-service",
+            "google_compute_backend_service.backend",
+            "google_compute_managed_ssl_certificate.ssl",
+            "google_compute_region_network_endpoint_group.serverless_neg",
+            "google_compute_url_map.url_map",
+            "google_project_service.required_services",
+            "google_secret_manager_secret.app_secrets",
+            "google_service_account.cloud_run_service_account",
+            "google_storage_bucket.app_storage"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_compute_url_map",
+      "name": "url_map",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "creation_timestamp": "2025-04-13T16:20:49.187-07:00",
+            "default_route_action": [],
+            "default_service": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/global/backendServices/fastapi-service-backend",
+            "default_url_redirect": [],
+            "description": "",
+            "fingerprint": "RxApv_PgUBo=",
+            "header_action": [],
+            "host_rule": [],
+            "id": "projects/coastal-gantry-250809/global/urlMaps/fastapi-service-url-map",
+            "map_id": 2207232968388376638,
+            "name": "fastapi-service-url-map",
+            "path_matcher": [],
+            "project": "coastal-gantry-250809",
+            "self_link": "https://www.googleapis.com/compute/v1/projects/coastal-gantry-250809/global/urlMaps/fastapi-service-url-map",
+            "test": [],
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_cloud_run_service.fastapi-service",
+            "google_compute_backend_service.backend",
+            "google_compute_region_network_endpoint_group.serverless_neg",
+            "google_project_service.required_services",
+            "google_secret_manager_secret.app_secrets",
+            "google_service_account.cloud_run_service_account",
+            "google_storage_bucket.app_storage"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_project_iam_member",
+      "name": "cloud_run_secret_accessor",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwYysVDAx+c=",
+            "id": "coastal-gantry-250809/roles/secretmanager.secretAccessor/serviceAccount:fastapi-service-sa@coastal-gantry-250809.iam.gserviceaccount.com",
+            "member": "serviceAccount:fastapi-service-sa@coastal-gantry-250809.iam.gserviceaccount.com",
+            "project": "coastal-gantry-250809",
+            "role": "roles/secretmanager.secretAccessor"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_project_service.required_services",
+            "google_service_account.cloud_run_service_account"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_project_iam_member",
+      "name": "cloud_run_storage_admin",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "condition": [],
+            "etag": "BwYysVDAx+c=",
+            "id": "coastal-gantry-250809/roles/storage.objectAdmin/serviceAccount:fastapi-service-sa@coastal-gantry-250809.iam.gserviceaccount.com",
+            "member": "serviceAccount:fastapi-service-sa@coastal-gantry-250809.iam.gserviceaccount.com",
+            "project": "coastal-gantry-250809",
+            "role": "roles/storage.objectAdmin"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "google_project_service.required_services",
+            "google_service_account.cloud_run_service_account"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_project_service",
+      "name": "required_services",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "cloudresourcemanager.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "coastal-gantry-250809/cloudresourcemanager.googleapis.com",
+            "project": "coastal-gantry-250809",
+            "service": "cloudresourcemanager.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "compute.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "coastal-gantry-250809/compute.googleapis.com",
+            "project": "coastal-gantry-250809",
+            "service": "compute.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "iam.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "coastal-gantry-250809/iam.googleapis.com",
+            "project": "coastal-gantry-250809",
+            "service": "iam.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "logging.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "coastal-gantry-250809/logging.googleapis.com",
+            "project": "coastal-gantry-250809",
+            "service": "logging.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "monitoring.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "coastal-gantry-250809/monitoring.googleapis.com",
+            "project": "coastal-gantry-250809",
+            "service": "monitoring.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "run.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "coastal-gantry-250809/run.googleapis.com",
+            "project": "coastal-gantry-250809",
+            "service": "run.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "secretmanager.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "coastal-gantry-250809/secretmanager.googleapis.com",
+            "project": "coastal-gantry-250809",
+            "service": "secretmanager.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        },
+        {
+          "index_key": "storage.googleapis.com",
+          "schema_version": 0,
+          "attributes": {
+            "disable_dependent_services": null,
+            "disable_on_destroy": false,
+            "id": "coastal-gantry-250809/storage.googleapis.com",
+            "project": "coastal-gantry-250809",
+            "service": "storage.googleapis.com",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInJlYWQiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjoxMjAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_secret_manager_secret",
+      "name": "app_secrets",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "debug",
+          "schema_version": 0,
+          "attributes": {
+            "annotations": {},
+            "create_time": "2025-04-13T12:00:50.743707Z",
+            "effective_annotations": {},
+            "effective_labels": {
+              "goog-terraform-provisioned": "true",
+              "label": "fastapi-service"
+            },
+            "expire_time": "",
+            "id": "projects/coastal-gantry-250809/secrets/debug",
+            "labels": {
+              "label": "fastapi-service"
+            },
+            "name": "projects/21979388483/secrets/debug",
+            "project": "coastal-gantry-250809",
+            "replication": [
+              {
+                "auto": [
+                  {
+                    "customer_managed_encryption": []
+                  }
+                ],
+                "user_managed": []
+              }
+            ],
+            "rotation": [],
+            "secret_id": "debug",
+            "terraform_labels": {
+              "goog-terraform-provisioned": "true",
+              "label": "fastapi-service"
+            },
+            "timeouts": null,
+            "topics": [],
+            "ttl": null,
+            "version_aliases": {},
+            "version_destroy_ttl": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_project_service.required_services"
+          ]
+        },
+        {
+          "index_key": "dummy",
+          "schema_version": 0,
+          "attributes": {
+            "annotations": {},
+            "create_time": "2025-04-13T12:00:50.703138Z",
+            "effective_annotations": {},
+            "effective_labels": {
+              "goog-terraform-provisioned": "true",
+              "label": "fastapi-service"
+            },
+            "expire_time": "",
+            "id": "projects/coastal-gantry-250809/secrets/dummy",
+            "labels": {
+              "label": "fastapi-service"
+            },
+            "name": "projects/21979388483/secrets/dummy",
+            "project": "coastal-gantry-250809",
+            "replication": [
+              {
+                "auto": [
+                  {
+                    "customer_managed_encryption": []
+                  }
+                ],
+                "user_managed": []
+              }
+            ],
+            "rotation": [],
+            "secret_id": "dummy",
+            "terraform_labels": {
+              "goog-terraform-provisioned": "true",
+              "label": "fastapi-service"
+            },
+            "timeouts": null,
+            "topics": [],
+            "ttl": null,
+            "version_aliases": {},
+            "version_destroy_ttl": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_project_service.required_services"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_secret_manager_secret_version",
+      "name": "app_secret_versions",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "index_key": "debug",
+          "schema_version": 0,
+          "attributes": {
+            "create_time": "2025-04-13T12:00:53.366859Z",
+            "deletion_policy": "DELETE",
+            "destroy_time": "",
+            "enabled": true,
+            "id": "projects/21979388483/secrets/debug/versions/1",
+            "is_secret_data_base64": false,
+            "name": "projects/21979388483/secrets/debug/versions/1",
+            "secret": "projects/coastal-gantry-250809/secrets/debug",
+            "secret_data": null,
+            "secret_data_wo": null,
+            "secret_data_wo_version": 0,
+            "timeouts": null,
+            "version": "1"
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "secret_data"
+              }
+            ]
+          ],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_project_service.required_services",
+            "google_secret_manager_secret.app_secrets"
+          ]
+        },
+        {
+          "index_key": "dummy",
+          "schema_version": 0,
+          "attributes": {
+            "create_time": "2025-04-13T12:00:53.590816Z",
+            "deletion_policy": "DELETE",
+            "destroy_time": "",
+            "enabled": true,
+            "id": "projects/21979388483/secrets/dummy/versions/1",
+            "is_secret_data_base64": false,
+            "name": "projects/21979388483/secrets/dummy/versions/1",
+            "secret": "projects/coastal-gantry-250809/secrets/dummy",
+            "secret_data": null,
+            "secret_data_wo": null,
+            "secret_data_wo_version": 0,
+            "timeouts": null,
+            "version": "1"
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "secret_data"
+              }
+            ]
+          ],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "google_project_service.required_services",
+            "google_secret_manager_secret.app_secrets"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_service_account",
+      "name": "cloud_run_service_account",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "fastapi-service-sa",
+            "create_ignore_already_exists": null,
+            "description": "",
+            "disabled": false,
+            "display_name": "Service Account for fastapi-service Cloud Run service",
+            "email": "fastapi-service-sa@coastal-gantry-250809.iam.gserviceaccount.com",
+            "id": "projects/coastal-gantry-250809/serviceAccounts/fastapi-service-sa@coastal-gantry-250809.iam.gserviceaccount.com",
+            "member": "serviceAccount:fastapi-service-sa@coastal-gantry-250809.iam.gserviceaccount.com",
+            "name": "projects/coastal-gantry-250809/serviceAccounts/fastapi-service-sa@coastal-gantry-250809.iam.gserviceaccount.com",
+            "project": "coastal-gantry-250809",
+            "timeouts": null,
+            "unique_id": "109330749547744299363"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "google_project_service.required_services"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "google_storage_bucket",
+      "name": "app_storage",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 3,
+          "attributes": {
+            "autoclass": [],
+            "cors": [],
+            "custom_placement_config": [],
+            "default_event_based_hold": false,
+            "effective_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "enable_object_retention": false,
+            "encryption": [],
+            "force_destroy": true,
+            "hierarchical_namespace": [
+              {
+                "enabled": false
+              }
+            ],
+            "id": "coastal-gantry-250809-fastapi-service-bucket",
+            "labels": {},
+            "lifecycle_rule": [],
+            "location": "US-CENTRAL1",
+            "logging": [],
+            "name": "coastal-gantry-250809-fastapi-service-bucket",
+            "project": "coastal-gantry-250809",
+            "project_number": 21979388483,
+            "public_access_prevention": "inherited",
+            "requester_pays": false,
+            "retention_policy": [],
+            "rpo": null,
+            "self_link": "https://www.googleapis.com/storage/v1/b/coastal-gantry-250809-fastapi-service-bucket",
+            "soft_delete_policy": [
+              {
+                "effective_time": "2025-04-13T12:11:01.506Z",
+                "retention_duration_seconds": 604800
+              }
+            ],
+            "storage_class": "STANDARD",
+            "terraform_labels": {
+              "goog-terraform-provisioned": "true"
+            },
+            "timeouts": null,
+            "uniform_bucket_level_access": true,
+            "url": "gs://coastal-gantry-250809-fastapi-service-bucket",
+            "versioning": [],
+            "website": []
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsInJlYWQiOjI0MDAwMDAwMDAwMCwidXBkYXRlIjoyNDAwMDAwMDAwMDB9LCJzY2hlbWFfdmVyc2lvbiI6IjMifQ==",
+          "dependencies": [
+            "google_project_service.required_services"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
