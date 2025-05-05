@@ -1,0 +1,13 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src  # コードをマウントして変更を即時反映
+    environment:
+      - DEBUG=${DEBUG}
+      - RELOAD=true
+      - LOG_LEVEL=debug
+    ports:
+      - "8000:8080"

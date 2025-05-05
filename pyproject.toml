@@ -1,0 +1,28 @@
+[project]
+name = "fastapi-study"
+version = "0.1.0"
+description = "FastAPIの実行環境"
+authors = [
+    {name = "shiroutosan 2025"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi (>=0.115.12,<0.116.0)",
+    "uvicorn[standard] (>=0.34.0,<0.35.0)",
+    "sqlalchemy (>=2.0.40,<3.0.0)",
+    "pydantic[email] (>=2.11.3,<3.0.0)",
+    "pytest (>=8.3.5,<9.0.0)",
+    "httpx (>=0.28.1,<0.29.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "fastapi-study"
+version = "0.1.0"
+description = ""
+authors = ["shiroutosan 2025"]
+package-mode = false 
